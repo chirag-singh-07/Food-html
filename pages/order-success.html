@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Successful</title>
+    <style>
+      .success-message {
+        text-align: center;
+        padding: 50px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        max-width: 600px;
+        margin: auto;
+        background: #f9f9f9;
+      }
+      h2 {
+        color: #28a745;
+      }
+      p {
+        font-size: 18px;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        text-decoration: none;
+        background: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+      .btn:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="success-message">
+        <h2>🎉 Order Placed Successfully! 🎉</h2>
+        <p>
+          Thank you for your order. Your order has been placed and is being
+          processed.
+        </p>
+        <p><strong>Order ID:</strong> <span id="order-id"></span></p>
+        <p>We will notify you once your order is on the way!</p>
+
+        <div class="buttons">
+          <a href="../index.html" class="btn">Continue Shopping</a>
+          <a href="#" class="btn">View Orders</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const orderId = Math.floor(Math.random() * 1000000); // Generate a random order ID
+        document.getElementById("order-id").textContent = orderId;
+      });
+    </script>
+  </body>
+</html>

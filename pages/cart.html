@@ -17,8 +17,10 @@
 
     <!-- fancy box  -->
     <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../assets/css/cart.css" />
     <!-- custom css  -->
     <link rel="stylesheet" href="../style.css" />
+    <!-- responsive css  -->
   </head>
 
   <body class="body-fixed">
@@ -74,6 +76,44 @@
 
     <div id="viewport">
       <div id="js-scroll-content">
+        <div class="container">
+          <h2 class="text-center mb-4" style="margin-top: 200px">Your Cart</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Product Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="cart-items">
+                <!-- Dynamic Cart Items Will Be Injected Here -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="text-end">
+            <h4 style="font-family: 'Courier New', Courier, monospace">
+              Total: ₹<span id="cart-total">0</span>
+            </h4>
+            <button
+              class="btn btn-success"
+              id="checkout-btn"
+              style="margin-bottom: 100px"
+            >
+              <a
+                href="checkout.html"
+                style="text-decoration: none; color: white"
+                >Proceed to Checkout</a
+              >
+            </button>
+          </div>
+        </div>
+
         <!-- footer starts  -->
         <footer class="site-footer" id="contact">
           <div class="top-footer section">
@@ -215,4 +255,6 @@
   <script src="../assets/js/smooth-scroll.js"></script>
   <!-- custom js  -->
   <script src="../main.js"></script>
+  <script src="../assets/js/check-auht.js"></script>
+  <script src="../assets/js/cart.js"></script>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../assets/css/checkout.css" />
+  </head>
+  <body>
+    <div class="container full">
+      <h2>Checkout</h2>
+
+      <div class="checkout-section">
+        <!-- Shipping Details Form -->
+        <div class="shipping-details">
+          <h3>Shipping Details</h3>
+          <form id="checkout-form">
+            <div class="input-group">
+              <input type="text" id="name" placeholder="Full Name" required />
+            </div>
+            <div class="input-group">
+              <input type="text" id="address" placeholder="Address" required />
+            </div>
+            <div class="input-group">
+              <input type="text" id="phone" placeholder="Phone Number" required />
+            </div>
+            <div class="input-group">
+              <select id="payment">
+                <option value="cod">Cash on Delivery</option>
+                <option value="card">Credit/Debit Card</option>
+              </select>
+            </div>
+            <button type="submit" onclick="locate()">
+                <a href="../pages/order-success.html">Place Order</a>
+            </button>
+          </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="order-items">
+              <!-- Dynamic Order Items Will Be Injected Here -->
+            </tbody>
+          </table>
+          <h4>Total: ₹<span id="order-total">0</span></h4>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/checkout.js"></script>
+  </body>
+</html>

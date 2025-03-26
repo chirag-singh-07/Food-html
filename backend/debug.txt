@@ -1,0 +1,6 @@
+Array
+(
+    [name] => Lucky
+    [email] => johan222@gamil.com
+    [password] => 123456
+)

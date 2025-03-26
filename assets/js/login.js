@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailError = document.getElementById("login-email-error");
     const passwordError = document.getElementById("login-password-error");
 
-    console.log("email", email, "password", password);
-
     let isValid = true;
 
     if (email === "") {
@@ -40,23 +38,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isValid) {
       try {
-        const res = await fetch("http://localhost:5000/api/auth/login", {
+        const res = await fetch("http://localhost/food_api/backend/login.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ email, password }),
+          credentials: "include", // 🔹 Important for session handling
         });
 
         const data = await res.json();
 
-        if (!res.ok) {
+        if (!data.success) {
           throw new Error(data.message || "Login failed");
         }
 
-        localStorage.setItem("token", data.token);
+        // ✅ Store user details in localStorage
+        localStorage.setItem("user", JSON.stringify(data.user));
+
         alert("Login successful!");
-        window.location.href = "dashboard.html";
+        window.location.href = "doneLogin.html"; // Redirect
       } catch (error) {
         console.error("Login Error:", error);
         alert(error.message);

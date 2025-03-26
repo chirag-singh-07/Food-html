@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Display</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      h2 {
+        text-align: center;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .product {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        background: #fff;
+        width: 200px;
+        text-align: center;
+      }
+      .product img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+      .delete-btn {
+        margin-top: 10px;
+        padding: 8px;
+        background: #dc3545;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .add-btn {
+        margin-top: 10px;
+        padding: 8px;
+        background: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      a {
+        /* color: #007bff; */
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Product List</h2>
+      <button class="add-btn">
+        <a href="add_product.html">Add Product</a>
+      </button>
+      <div class="product-list" id="product-list"></div>
+    </div>
+
+    <script>
+      async function loadProducts() {
+        try {
+          const res = await fetch(
+            "http://localhost/food_api/backend/get_food.php"
+          );
+          const products = await res.json();
+
+          const productList = document.getElementById("product-list");
+          productList.innerHTML = "";
+
+          products.forEach((product) => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+
+            productDiv.innerHTML = `
+                    <img src="${product.image}" alt="Product">
+                    <h3>${product.name}</h3>
+                    <p>₹${product.price}</p>
+                    <button class="delete-btn" onclick="deleteProduct(${product.id})">Delete</button>
+                `;
+
+            productList.appendChild(productDiv);
+          });
+        } catch (error) {
+          console.error("Error loading products:", error);
+        }
+      }
+
+      async function loadProducts() {
+        try {
+          console.log("Fetching products...");
+
+          const res = await fetch(
+            "http://localhost/food_api/backend/get_food.php"
+          );
+          console.log("Response status:", res.status);
+
+          const products = await res.json();
+          console.log("Products received:", products); // Log data received
+
+          const productList = document.getElementById("product-list");
+          productList.innerHTML = "";
+
+          products.forEach((product) => {
+            console.log("Processing product:", product);
+
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+
+            productDiv.innerHTML = `
+        <img src="${product.image}" alt="Product">
+        <h3>${product.name}</h3>
+        <p>₹${product.price}</p>
+        <button class="delete-btn" onclick="deleteProduct(${product.id})">Delete</button>
+      `;
+
+            productList.appendChild(productDiv);
+          });
+        } catch (error) {
+          console.error("Error loading products:", error);
+        }
+      }
+
+      loadProducts();
+    </script>
+  </body>
+</html>
