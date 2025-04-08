@@ -1,55 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Product - Admin</title>
-    <link rel="stylesheet" href="../assets/css/login.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h2>Add Product</h2>
-      <form id="add-product-form" enctype="multipart/form-data">
-        <div class="input-group">
-          <input type="text" id="name" name="name" placeholder="Product Name" />
-          <p class="error" id="name-error">Product name is required</p>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Product - Admin</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
 
-        <div class="input-group">
-          <input
-            type="number"
-            id="price"
-            name="price"
-            placeholder="Price (₹)"
-          />
-          <p class="error" id="price-error">Enter a valid price</p>
-        </div>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fff4e6, #ffe0b2);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        <div class="input-group">
-          <select name="category" id="category">
-            <option value="">Select Category</option>
-            <option value="veg">Veg</option>
-            <option value="non-veg">Non-Veg</option>
-            <option value="jan food">Jan Food</option>
-          </select>
-          <p class="error" id="category-error">Select a category</p>
-        </div>
+    .container {
+      background-color: #fff;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
 
-        <div class="input-group">
-          <input type="file" id="image" name="image" />
-          <p class="error" id="image-error">Product image is required</p>
-        </div>
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ff6f00;
+    }
 
-        <div class="image-preview">
-          <img id="preview-img" src="" alt="Preview" style="display: none" />
-        </div>
+    .input-group {
+      margin-bottom: 20px;
+    }
 
-        <button type="submit">Add Product</button>
-        <a href="adminPanel.html">Back to Home</a>
-      </form>
-    </div>
+    input[type="text"],
+    input[type="number"],
+    select,
+    input[type="file"] {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
 
-    <script src="../assets/js/admin.js"></script>
-    <!-- <script src="../assets/js/check-auht.js"></script> -->
-  </body>
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus {
+      border-color: #ff9800;
+    }
+
+    .error {
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .image-preview {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .image-preview img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #ffb74d;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      display: none;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #ff6f00;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #e65c00;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #ff6f00;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Add Product</h2>
+    <form id="add-product-form" enctype="multipart/form-data">
+      <div class="input-group">
+        <input type="text" id="name" name="name" placeholder="Product Name" />
+        <p class="error" id="name-error">Product name is required</p>
+      </div>
+
+      <div class="input-group">
+        <input type="number" id="price" name="price" placeholder="Price (₹)" />
+        <p class="error" id="price-error">Enter a valid price</p>
+      </div>
+
+      <div class="input-group">
+        <select name="category" id="category">
+          <option value="">Select Category</option>
+          <option value="veg">Veg</option>
+          <option value="non-veg">Non-Veg</option>
+          <option value="jan food">Jan Food</option>
+        </select>
+        <p class="error" id="category-error">Select a category</p>
+      </div>
+
+      <div class="input-group">
+        <input type="file" id="image" name="image" accept="image/*" />
+        <p class="error" id="image-error">Product image is required</p>
+      </div>
+
+      <div class="image-preview">
+        <img id="preview-img" src="" alt="Preview" />
+      </div>
+
+      <button type="submit">Add Product</button>
+      <a href="adminPanel.html">← Back to Home</a>
+    </form>
+  </div>
+
+  <script>
+    const imageInput = document.getElementById("image");
+    const previewImg = document.getElementById("preview-img");
+
+    imageInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewImg.src = e.target.result;
+          previewImg.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+  <script src="../assets/js/admin.js"></script>
+</body>
 </html>

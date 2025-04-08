@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Added Successfully</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #e0ffe0, #ccf5ff);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .success-card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        max-width: 450px;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.4s ease-in-out;
+      }
+
+      .success-card .icon {
+        font-size: 60px;
+        color: #4caf50;
+        margin-bottom: 20px;
+      }
+
+      .success-card h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .success-card p {
+        color: #555;
+        margin-bottom: 30px;
+      }
+
+      .success-card a {
+        display: inline-block;
+        text-decoration: none;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .success-card a:hover {
+        background-color: #43a047;
+      }
+
+      @keyframes fadeIn {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .success-card {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-card">
+      <div class="icon">✅</div>
+      <h2>Product Added Successfully!</h2>
+      <p>Your new product has been saved and is now live in the system.</p>
+      <a href="adminPanel.html">Go Back to Admin Panel</a>
+    </div>
+  </body>
+</html>

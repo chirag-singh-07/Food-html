@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Add Failed</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffe6e6, #ffeaea);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .error-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      max-width: 450px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.4s ease-in-out;
+    }
+
+    .error-card .icon {
+      font-size: 60px;
+      color: #e53935;
+      margin-bottom: 20px;
+    }
+
+    .error-card h2 {
+      font-size: 24px;
+      color: #c62828;
+      margin-bottom: 10px;
+    }
+
+    .error-card p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .error-card a {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #e53935;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .error-card a:hover {
+      background-color: #c62828;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-card">
+    <div class="icon">❌</div>
+    <h2>Product Add Failed!</h2>
+    <p>Something went wrong while trying to add the product. Please try again.</p>
+    <a href="add_product.html">Back to Add Product</a>
+  </div>
+</body>
+</html>

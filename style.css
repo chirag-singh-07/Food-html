@@ -816,9 +816,6 @@ p {
   box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
   border-radius: 50%;
   overflow: hidden;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
 }
 
 .dish-rating {

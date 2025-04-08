@@ -57,25 +57,26 @@ document
       );
 
       const text = await res.text(); // Read response as text
-      console.log("Raw response from server:", text);
+      // console.log("Raw response from server:", text);
 
       // Try to parse JSON safely
       let data;
       try {
         data = JSON.parse(text);
       } catch (jsonError) {
-        throw new Error("Server response is not valid JSON.");
+        console.error("JSON parsing error:", jsonError);
+        window.location.href = "../../pages/failed_to_addproduct_page.html";
+        return;
       }
 
       if (!data.success) {
-        throw new Error(data.message || "Failed to add product");
+        window.location.href = "../../pages/failed_to_addproduct_page.html";
+        return;
       }
-
-      alert("Product added successfully!");
 
       document.getElementById("add-product-form").reset();
       document.getElementById("preview-img").style.display = "none";
-      window.location.href = "../../pages/adminPanel.html";
+      window.location.href = "../../pages/product_add_success_page.html";
     } catch (error) {
       console.error("Error:", error);
       alert(error.message);
